@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>简明指南 · ayx</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f4f9fc;
+      color: #1b2b3a;
+      line-height: 1.6;
+      padding: 0 20px 40px;
+    }
+
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    /* hero */
+    .hero {
+      padding: 60px 0 40px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: #115566;
+      background: linear-gradient(145deg, #0d5b6e 0%, #1b7f8c 80%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 14px;
+    }
+
+    .hero p {
+      max-width: 640px;
+      margin: 0 auto 24px;
+      font-size: 1.15rem;
+      color: #2b4a58;
+      font-weight: 350;
+    }
+
+    .hero .tagline {
+      display: inline-block;
+      background: #d7ebf0;
+      color: #115566;
+      font-size: 0.9rem;
+      padding: 6px 18px;
+      border-radius: 40px;
+      letter-spacing: 0.3px;
+      font-weight: 450;
+      box-shadow: 0 2px 6px rgba(17, 85, 102, 0.06);
+    }
+
+    /* 网格卡片 优势区 */
+    .grid-advantages {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin: 40px 0 32px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 24px;
+      padding: 26px 22px 22px;
+      box-shadow: 0 8px 20px rgba(0, 40, 50, 0.05);
+      transition: all 0.2s ease;
+      border: 1px solid rgba(160, 200, 210, 0.2);
+    }
+
+    .card:hover {
+      box-shadow: 0 12px 28px rgba(17, 85, 102, 0.08);
+      transform: translateY(-3px);
+      border-color: #a2cdd9;
+    }
+
+    .card .emoji {
+      font-size: 1.9rem;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #124352;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #2f4d59;
+      line-height: 1.5;
+    }
+
+    /* 说明区 双栏 */
+    .info-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin: 48px 0 24px;
+      background: #e6f2f6;
+      border-radius: 40px;
+      padding: 32px 30px;
+      align-items: flex-start;
+    }
+
+    .info-text {
+      flex: 2;
+      min-width: 260px;
+    }
+
+    .info-text h2 {
+      font-size: 1.7rem;
+      font-weight: 480;
+      color: #0b485a;
+      margin-bottom: 16px;
+    }
+
+    .info-text p {
+      margin-bottom: 18px;
+      color: #1f3b45;
+      font-size: 1rem;
+    }
+
+    .info-text a {
+      color: #176c7e;
+      text-decoration: underline;
+      text-decoration-color: #92bfcb;
+      text-underline-offset: 3px;
+      font-weight: 450;
+    }
+
+    .info-text a:hover {
+      color: #0b4b5c;
+      text-decoration-color: #176c7e;
+    }
+
+    .info-note {
+      flex: 1.2;
+      min-width: 200px;
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(4px);
+      border-radius: 28px;
+      padding: 22px 20px;
+      border: 1px solid rgba(120, 180, 195, 0.3);
+    }
+
+    .info-note p {
+      font-size: 0.95rem;
+      color: #1d4a57;
+      margin-bottom: 10px;
+    }
+
+    .info-note .highlight {
+      background: #b2d8e3;
+      padding: 1px 8px;
+      border-radius: 20px;
+      font-weight: 450;
+      color: #0a3a47;
+    }
+
+    /* FAQ 摘要 */
+    .faq-summary {
+      margin: 40px 0 20px;
+      background: white;
+      border-radius: 28px;
+      padding: 26px 30px 18px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.02);
+      border: 1px solid #d6e6ec;
+    }
+
+    .faq-summary h2 {
+      font-size: 1.5rem;
+      font-weight: 450;
+      color: #0d4d5e;
+      margin-bottom: 20px;
+      border-left: 5px solid #258094;
+      padding-left: 18px;
+    }
+
+    .faq-item {
+      padding: 10px 0 12px;
+      border-bottom: 1px solid #e0edf2;
+    }
+
+    .faq-item:last-of-type {
+      border-bottom: none;
+    }
+
+    .faq-item strong {
+      font-weight: 550;
+      color: #135a6b;
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .faq-item p {
+      color: #2c4f5b;
+      font-size: 0.96rem;
+      margin: 2px 0 0;
+    }
+
+    /* 底部链接 */
+    .footer-links {
+      margin-top: 40px;
+      padding: 24px 0 10px;
+      border-top: 1px solid #cde1e8;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-links .small {
+      font-size: 0.9rem;
+      color: #426d7a;
+    }
+
+    .footer-links a {
+      color: #0f6275;
+      text-decoration: none;
+      font-weight: 460;
+      border-bottom: 1px solid transparent;
+      transition: border 0.15s;
+    }
+
+    .footer-links a:hover {
+      border-bottom: 1px solid #1c7e92;
+    }
+
+    .footer-note {
+      font-size: 0.85rem;
+      color: #4c727f;
+      margin-top: 6px;
+    }
+
+    /* 移动端细节 */
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      .info-section {
+        padding: 24px 18px;
+        border-radius: 28px;
+      }
+      .faq-summary {
+        padding: 20px 18px;
+      }
+      .card {
+        padding: 22px 18px;
+      }
+      .footer-links {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- hero -->
+    <header class="hero">
+      <h1>ayx · 简明访问指南</h1>
+      <p>在变化中保持自己的节奏——了解<a href="https://base-ayx.com.cn">ayx</a>的实用提醒与基础说明，让每一次浏览都清晰有度。</p>
+      <span class="tagline">适配 · 提醒 · 轻量指引</span>
+    </header>
+
+    <!-- 优势网格 卡片区 -->
+    <div class="grid-advantages">
+      <div class="card">
+        <span class="emoji">🧭</span>
+        <h3>结构简练</h3>
+        <p>页面布局经过梳理，信息分组直接，减少不必要的层级跳转，适合快速定位内容。</p>
+      </div>
+      <div class="card">
+        <span class="emoji">🔄</span>
+        <h3>状态透明</h3>
+        <p>访问过程中的常见状态（加载、提示、跳转）均有基础反馈，不隐藏关键信息。</p>
+      </div>
+      <div class="card">
+        <span class="emoji">📐</span>
+        <h3>设备适应</h3>
+        <p>针对手机与桌面分别做了间距和字体调整，阅读体验在多数屏幕尺寸下保持一致。</p>
+      </div>
+      <div class="card">
+        <span class="emoji">🔔</span>
+        <h3>提醒克制</h3>
+        <p>没有弹窗干扰或过度引导，仅在必要时提供提示，把选择留给使用者。</p>
+      </div>
+    </div>
+
+    <!-- 说明区 双栏 -->
+    <div class="info-section">
+      <div class="info-text">
+        <h2>关于访问与提醒</h2>
+        <p>
+          站点 <a href="https://base-ayx.com.cn">ayx</a> 以信息承载为主，未使用自动跳转或强制重定向。若需要获取最新入口或可用方式，建议直接通过主流搜索引擎查询关键词「ayx 访问」或参考社区用户分享的同步信息。
+        </p>
+        <p>
+          域名结构保持简单，未嵌套第三方跟踪脚本。页面加载过程中如果遇到延迟，通常是网络链路或当地解析影响，可以尝试更换 DNS 或稍后重试。
+        </p>
+        <p>
+          本指南不是官方文档，而是基于长期观察整理出的简明提醒——帮助新接触的朋友更快了解 <a href="https://base-ayx.com.cn">ayx</a> 的使用节奏。
+        </p>
+      </div>
+      <div class="info-note">
+        <p><span class="highlight">💡 提醒</span> 部分浏览器会拦截非 HTTPS 资源，请确保地址栏显示安全锁标志。</p>
+        <p><span class="highlight">🕒 时段</span> 晚间访问高峰 (20:00-23:00) 可能遇到间歇性响应变慢，属于正常波动。</p>
+        <p><span class="highlight">🔖 备忘</span> 如果页面样式错乱，尝试清除缓存或使用隐私模式打开。</p>
+      </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-summary">
+      <h2>常见疑问摘要</h2>
+      <div class="faq-item">
+        <strong>为什么有时候打不开 ayx ？</strong>
+        <p>可能原因包括：本地网络限制、DNS 缓存过期、或临时维护。建议隔一段时间再试，或换一个网络环境。</p>
+      </div>
+      <div class="faq-item">
+        <strong>是否需要注册或登录？</strong>
+        <p>绝大多数内容无需注册即可浏览。部分交互功能可能要求身份验证，具体以实际页面标注为准。</p>
+      </div>
+      <div class="faq-item">
+        <strong>如何获取最新可用地址？</strong>
+        <p>可通过收藏本页或关注社区动态。如果遇到无法访问，建议搜索「ayx 最新」并核对域名主体。</p>
+      </div>
+    </div>
+
+    <!-- 底部链接 -->
+    <footer class="footer-links">
+      <div>
+        <a href="https://base-ayx.com.cn" class="main-link">ayx</a>
+        <span class="small"> · 简明提醒 · 不构成官方声明</span>
+      </div>
+      <div class="footer-note">
+        <span>内容仅供参考，请以实际站点为准</span>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>
