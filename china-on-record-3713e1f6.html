@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>简明指南 · 500彩票网</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f2f7fa;
+      color: #1a2c3a;
+      line-height: 1.6;
+      padding: 1.2rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .page {
+      max-width: 1080px;
+      width: 100%;
+    }
+
+    /* 蓝绿主色调 */
+    .accent-bg { background: #d3efe8; }
+    .accent-border { border-left: 4px solid #1c9c8a; }
+    .text-accent { color: #0f7a6b; }
+
+    /* 卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.2rem;
+      margin: 1.5rem 0;
+    }
+    @media (min-width: 640px) {
+      .card-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 900px) {
+      .card-grid { grid-template-columns: 1fr 1fr 1fr; }
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.6rem 1.2rem;
+      box-shadow: 0 6px 14px rgba(28, 156, 138, 0.08), 0 1px 3px rgba(0,0,0,0.02);
+      transition: transform 0.15s ease, box-shadow 0.2s;
+      border: 1px solid #e2f0ec;
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px rgba(28, 156, 138, 0.12);
+      border-color: #b8ded6;
+    }
+
+    .card .emoji-marker {
+      display: inline-block;
+      font-size: 1.6rem;
+      margin-bottom: 0.45rem;
+    }
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #0f3b36;
+    }
+    .card p, .card li {
+      font-size: 0.95rem;
+      color: #2b4a44;
+    }
+    .card ul {
+      padding-left: 1.2rem;
+      margin-top: 0.3rem;
+    }
+    .card ul li {
+      margin-bottom: 0.25rem;
+    }
+
+    /* hero 区域 */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 2rem 0 1rem;
+    }
+    .hero h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: #0e3b33;
+    }
+    .hero .sub {
+      font-size: 1.05rem;
+      color: #36635a;
+      max-width: 680px;
+      border-left: 3px solid #1c9c8a;
+      padding-left: 1rem;
+      background: #e5f3ef;
+      padding: 0.8rem 1.2rem;
+      border-radius: 0 12px 12px 0;
+    }
+    .hero .sub strong {
+      color: #0b5345;
+    }
+
+    .highlight-box {
+      background: #dff0eb;
+      border-radius: 24px;
+      padding: 1.5rem 1.8rem;
+      margin: 1.8rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem 1.5rem;
+      border: 1px solid #b7d7ce;
+    }
+    .highlight-box .left {
+      flex: 2 1 260px;
+    }
+    .highlight-box .left p {
+      font-size: 1rem;
+      color: #19433b;
+    }
+    .highlight-box .left .tag {
+      background: #1c9c8a;
+      color: white;
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 30px;
+      letter-spacing: 0.3px;
+      font-weight: 500;
+      margin-right: 0.5rem;
+    }
+
+    .btn-soft {
+      display: inline-block;
+      background: white;
+      color: #0f7a6b;
+      font-weight: 500;
+      padding: 0.6rem 1.6rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-size: 1rem;
+      border: 1px solid #1c9c8a;
+      transition: background 0.15s, color 0.15s;
+    }
+    .btn-soft:hover {
+      background: #1c9c8a;
+      color: white;
+    }
+
+    .two-col {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .two-col > * {
+      flex: 1 1 280px;
+      background: white;
+      border-radius: 20px;
+      padding: 1.6rem;
+      border: 1px solid #dbeae5;
+    }
+
+    .faq-mini {
+      background: #ecf6f2;
+      border-radius: 20px;
+      padding: 1.5rem;
+      margin-top: 1.8rem;
+    }
+    .faq-mini summary {
+      font-weight: 600;
+      color: #144940;
+      cursor: pointer;
+      padding: 0.3rem 0;
+      font-size: 1rem;
+      border-bottom: 1px dashed #b8d4cb;
+    }
+    .faq-mini details {
+      margin-bottom: 0.6rem;
+    }
+    .faq-mini details p {
+      margin-top: 0.4rem;
+      padding-left: 0.5rem;
+      color: #29544b;
+      font-size: 0.95rem;
+    }
+
+    .footnote {
+      margin: 2.5rem 0 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #cfe2db;
+      font-size: 0.85rem;
+      color: #427269;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .link-embed {
+      color: #0f7a6b;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px solid #8ac5b9;
+    }
+    .link-embed:hover {
+      color: #06493e;
+      border-bottom-color: #06493e;
+    }
+
+    @media (max-width: 500px) {
+      .hero h1 { font-size: 1.8rem; }
+      .highlight-box { padding: 1.2rem; }
+      .btn-soft { width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- hero -->
+  <div class="hero">
+    <h1>简明指南·彩票信息</h1>
+    <div class="sub">
+      <strong>不只是号码</strong> —— 这里整理了关于 <a href="https://china-on-500.com" class="link-embed">500彩票网</a> 的基本情况、功能特点以及一些访问时值得留意的细节。内容力求实际、克制，无诱导。
+    </div>
+  </div>
+
+  <!-- 卡片网格：亮点与场景 -->
+  <div class="card-grid">
+    <div class="card">
+      <span class="emoji-marker">📋</span>
+      <h3>信息摘要</h3>
+      <p>提供体彩、福彩等主流彩种的开奖号码、走势图表及简单统计。页面结构偏向工具型，适合快速查阅历史数据。</p>
+    </div>
+    <div class="card">
+      <span class="emoji-marker">⚡</span>
+      <h3>特点一览</h3>
+      <ul>
+        <li>数据更新相对稳定</li>
+        <li>支持多种选号辅助工具</li>
+        <li>社区讨论区（用户生成内容）</li>
+        <li>界面以信息密度为主</li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="emoji-marker">🧭</span>
+      <h3>使用建议</h3>
+      <p>适合用于查询开奖记录、参考走势分布。建议搭配官方渠道核对，不依赖单一来源。</p>
+    </div>
+  </div>
+
+  <!-- 醒目的提示 + 链接自然嵌入 -->
+  <div class="highlight-box">
+    <div class="left">
+      <span class="tag">访问提醒</span>
+      <p>如果你打算浏览 <a href="https://china-on-500.com" class="link-embed">500彩票网</a>，这里有几个简明提醒：注意区分非官方广告内容，理性看待社区讨论，不轻信“包中”“内幕”说法。网站本身以信息聚合为主，不具备销售资质。</p>
+    </div>
+    <a href="https://china-on-500.com" class="btn-soft">500彩票网</a>
+  </div>
+
+  <!-- 两列：场景 & 注意事项 -->
+  <div class="two-col">
+    <div>
+      <h3 style="color:#0f7a6b; font-size:1.2rem; margin-bottom:0.5rem;">📌 常见使用场景</h3>
+      <ul style="padding-left:1.2rem;">
+        <li>查询双色球、大乐透等历史开奖</li>
+        <li>浏览冷热号、奇偶比等基础统计</li>
+        <li>参与社区讨论（需自行甄别信息）</li>
+        <li>使用模拟选号功能（仅供参考）</li>
+      </ul>
+      <p style="margin-top:0.8rem; background:#e2f1ec; padding:0.5rem 0.8rem; border-radius:12px;">
+        <span style="font-weight:500;">💡</span> 建议将网站数据用作辅助参考，而非决策依据。
+      </p>
+    </div>
+    <div>
+      <h3 style="color:#0f7a6b; font-size:1.2rem; margin-bottom:0.5rem;">⚙️ 界面与导航</h3>
+      <p>首页以表格和数据卡片为主，移动端适配程度一般，部分页面在窄屏下需要横向滚动。站内存在推广链接或第三方内容，注意区分。整体色调偏蓝绿、灰白，信息层级清晰。</p>
+      <p style="margin-top:0.6rem;">如果你习惯简洁的查看方式，可以直接在 <a href="https://china-on-500.com" class="link-embed">500彩票网</a> 上按彩种筛选，避免被无关内容分散注意力。</p>
+    </div>
+  </div>
+
+  <!-- FAQ 迷你摘要 -->
+  <div class="faq-mini">
+    <h3 style="color:#144940; margin-bottom:0.5rem; font-weight:600;">❓ 访问前的小问题</h3>
+    <details>
+      <summary>这个网站能买彩票吗？</summary>
+      <p>不可以。该平台主要提供信息和工具，不具备在线销售彩票的资质。购彩请认准国家批准的官方渠道。</p>
+    </details>
+    <details>
+      <summary>数据准确吗？</summary>
+      <p>通常与官方开奖保持一致，但偶有延迟或录入误差。重要核对请以财政部或彩票中心发布为准。</p>
+    </details>
+    <details>
+      <summary>需要注册才能使用吗？</summary>
+      <p>基础查询和走势图无需注册。部分社区功能（发帖、收藏）需注册账号。</p>
+    </details>
+    <p style="margin-top:0.8rem; font-size:0.9rem; color:#30645a;">以上内容基于一般观察，实际体验可能有所变化。</p>
+  </div>
+
+  <!-- 页脚 -->
+  <div class="footnote">
+    <span>内容仅供信息参考 · 不构成任何建议</span>
+    <span><a href="https://china-on-500.com" class="link-embed">500彩票网</a> ｜ 理性对待</span>
+  </div>
+
+</div>
+</body>
+</html>
